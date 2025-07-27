@@ -20,11 +20,14 @@
 - arm mediatek mt8173 64bit chromebooks oak: https://github.com/velvet-os/imagebuilder/blob/main/systems/chromebook_oak/readme.md
 - arm mediatek mt8183 64bit chromebooks kukui: https://github.com/velvet-os/imagebuilder/blob/main/systems/chromebook_kukui/readme.md
 - arm mediatek mt8186 64bit chromebooks corsola: https://github.com/velvet-os/imagebuilder/blob/main/systems/chromebook_corsola/readme.md (wip)
+- arm mediatek mt8188 64bit chromebooks geralt: https://github.com/velvet-os/imagebuilder/blob/main/systems/chromebook_geralt/readme.md (wip)
 - arm mediatek mt8192 64bit chromebooks asurada: https://github.com/velvet-os/imagebuilder/blob/main/systems/chromebook_asurada/readme.md (wip)
 - arm mediatek mt8195 64bit chromebooks cherry: https://github.com/velvet-os/imagebuilder/blob/main/systems/chromebook_cherry/readme.md (wip)
+- arm mediatek mt8196 64bit chromebooks rauru: https://github.com/velvet-os/imagebuilder/blob/main/systems/chromebook_rauru/readme.md (wip)
 - arm qualcom 7c gen1 and gen2 sc7180 64bit chromebooks trogdor: https://github.com/velvet-os/imagebuilder/blob/main/systems/chromebook_trogdor/readme.md
 - intel chromebooks with legacy/mbr booting firmware and generic intel systems with mbr booting bios: https://github.com/velvet-os/imagebuilder/blob/main/systems/chromebook_x86_mbr/readme.md
 - intel chromebooks with uefi firmware and generic intel systems with uefi bios: https://github.com/velvet-os/imagebuilder/blob/main/systems/chromebook_x86_uefi/readme.md
+- aarch64/arm64 devices with u-boot uefi emulation and mbr partitioning (amlogic only so far): https://github.com/velvet-os/imagebuilder/blob/main/systems/aarch64_mbr_uefi/readme.md (wip)
 - odroid u3 (u3, u2, x2, x) devices: https://github.com/velvet-os/imagebuilder/blob/main/systems/odroid_u3/readme.md
 - orbsmart s92, beelink r89 and similar rockchip rk3288 tv boxes: https://github.com/velvet-os/imagebuilder/blob/main/systems/orbsmart_s92_beelink_r89/readme.md
 - raspberry pi 4: https://github.com/velvet-os/imagebuilder/blob/main/systems/raspberry_pi_4/readme.md
