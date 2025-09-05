@@ -32,6 +32,9 @@ elif [ "$1" = "trixie" ]; then
   if [ "$2" != "riscv64" ]; then
     apt-get -yq install cgpt vboot-kernel-utils
   fi
+  # it looks like this is still required to get working screen locker in power management settings
+  apt-get -yq remove --purge light-locker
+  apt-get -yq install xfce4-screensaver
   tasksel install standard
 # special debian sid config for riscv64 as there is no useable bookworm for it yet
 elif [ "$1" = "sidriscv" ]; then
