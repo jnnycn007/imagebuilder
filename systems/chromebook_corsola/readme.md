@@ -11,6 +11,8 @@
 - lenovo ideapad slim 3 (mt8186 version) - [magenton](https://github.com/velvet-os/velvet-os.github.io/blob/main/chromebooks/systems/corsola/magneton.md)
   - see also: https://github.com/velvet-os/imagebuilder/issues/228
 - asus chromebook cm14 (cm1402c) - tentacool
+- acer chromebook 311 (c723/c723t) - voltorb
+  - see: https://github.com/velvet-os/imagebuilder/issues/386
 
 ## untested systems
 
@@ -21,7 +23,6 @@
 - asus chromebook cz12 (cz1204c) - chinchou
 - asus chromebook cz12 flip (cz1204f) - chinchou360
 - huaqin noname (it seems to have lte) - ponyta
-- acer chromebook 311 (c723/c723t) - voltorb
 - acer chromebook 311 (r724t) - squirtle
 - hp chromebook g1m 11 inch - skitty
 
