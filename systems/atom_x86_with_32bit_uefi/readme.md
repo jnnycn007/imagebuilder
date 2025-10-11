@@ -59,7 +59,7 @@
     apt-get install linux-kbuild-kernel_version linux-headers-kernel_version-amd64
     apt-get install r8168-dkms
     ```
-    and after a reboot ethernet should work reliable
+    now uncomment the last line "blacklist r8169" in /etc/modprobe.d/r8168-dkms.conf and after a reboot ethernet should work reliable
   - to get wifi working do:
     ```
     cp /lib/firmware/brcm/brcmfmac43340-sdio.ASUSTeK\ COMPUTER\ INC.-TF103CE.txt /lib/firmware/brcm/brcmfmac43340-sdio.txt
