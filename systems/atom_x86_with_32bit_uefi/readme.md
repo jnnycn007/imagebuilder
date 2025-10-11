@@ -51,5 +51,17 @@
     - i was able to get into the bios by booting the debian bullseye default i386 installer, go to the grub cmdline there and exit it via 'exit' command - also exiting this way from an efi shell works in case someone ends up in an efi shell
     - after such an exit the bios boot device menu was shown, from there one can get into another menu via 'tab' key from which one can enter the bios setup and disable secure boot in it
     - a plan b i had in mind was to use the mokutil command to try to disable secure boot from within a debian bullseye system installed with secure boot enabled using the default i386 installer
-- something relevant for the beelink z83
-  - it is recommended to run "apt-get install r8168-dkms" to install a ethernet driver, which is more stable (with the default in kernel driver ethernet sometimes worked and sometimes not
+- something relevant for the beelink z83 (be aware: there are many different versions of the beelink z83 with different suffixes in the name - the below is for the initial z83 version which is just named "z83")
+  - it is recommended to install the r8168 ethernet driver, which is more stable (with the default in kernel driver ethernet sometimes worked and sometimes not - to do so the following steps are required:
+    ```
+    # install the kernel headers and kbuild files for your kernel version,
+    # so that dkms module building works
+    apt-get install linux-kbuild-kernel_version linux-headers-kernel_version-amd64
+    apt-get install r8168-dkms
+    ```
+    and after a reboot ethernet should work reliable
+  - to get wifi working do:
+    ```
+    cp /lib/firmware/brcm/brcmfmac43340-sdio.ASUSTeK\ COMPUTER\ INC.-TF103CE.txt /lib/firmware/brcm/brcmfmac43340-sdio.txt
+    ```
+  - to get bluetooth working get the file BCM43341B0.hcd from https://github.com/Asus-T100/firmware/blob/master/brcm/BCM43341B0.hcd and install it to /lib/firmware/brcm
