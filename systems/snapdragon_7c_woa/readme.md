@@ -36,7 +36,7 @@ see also https://github.com/velvet-os/imagebuilder/issues/136 for all above
 ## special notes
 
 - this is very much work in progress, not really useable yet and mostly ment as a starting point for helping to bring mainline linux forward on this platform
-- the grub setup so far is only an ugly hack to make it boot at all and the boot config is currently hard coded in /boot/boot/grub/grub.cfg
+- the grub setup so far is only an ugly hack to make it boot at all and the boot config is currently hard coded in /boot/boot/grub/grub.cfg (only valid for the images from before trixie 2025)
 - currently the dtb file for the samsung galaxy book go is hard coded in the grub config file, this needs to be adjusted in case of the aspire 1 or another snapdragon 7c system (handled via two grub menu entries since 230305-01 now)
 - the root filesystems is currently still set to ext4 (but the usual btrfs should work as well i guess) (switched to btrfs root since 230305-01)
 - so far only tested with bookworm, not sure if grub etc. in jammy is new enough to be working
@@ -47,7 +47,7 @@ see also https://github.com/velvet-os/imagebuilder/issues/136 for all above
 - samsung galaxy book go notes:
   - to enter the bios press f2 early after boot, sometimes it takes a few tries until it will enter the bios
   - to enter the boot selector press f10 early after powering on the device, sometimes it takes quite a few tries until the usb disk is detected by the boot selector (should be something like "uefi: usb ..." in the menu)
-  - booting from usb seems to be quite selective on the device used: a sandisk ultra stick was detected only at around each 10th try, some no name slow cheap usb device worked much better, so some experimentation might be required - it seems to work more reliable if the usb device is connected via a usb-c to usb-a hub: this way it was visible each time in the boot menu, otherwise only every few tries
+  - booting from usb seems to be quite selective on the device used: a sandisk ultra stick was detected only at around each 10th try, some no name slow cheap usb device worked much better, so some experimentation might be required - it seems to work more reliable if the usb device is connected via a usb-c to usb-a hub: this way it was visible each time in the boot menu, otherwise only every few tries - see also: https://github.com/velvet-os/imagebuilder/discussions/320#discussioncomment-14787323
   - the right usb-c port (left not tested yet) is also working if some usb-c hub or adapter is connected to it while booting, this way a usb hub can be used to connect a mouse and usb ethernet
   - working so far: display framebuffer, keyboard (needs some key press during boot to get rid of logged errors), usb-a, usb-c (if connected together with usb-a at boot time already), gpu if at least one firmware file from windows is installed
   - some interesting info: https://github.com/aarch64-laptops/debian-cdimage/issues/21
