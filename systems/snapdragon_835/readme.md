@@ -2,7 +2,7 @@
 
 ## bootable sd card images
 
-- https://github.com/velvet-os/imagebuilder-testimages/releases/tag/autumn-release-2025-testimages (testimage)
+- https://github.com/velvet-os/imagebuilder/releases/tag/251220-01
 - https://github.com/velvet-os/imagebuilder-testimages/releases/tag/spring-release-2025-testimages-round-08 (testimage)
 - https://github.com/velvet-os/imagebuilder/releases/tag/240112-02
 - https://github.com/velvet-os/imagebuilder/releases/tag/230322-01
@@ -30,12 +30,11 @@
 ## special notes
 
 - this is very much work in progress, not really useable yet and mostly ment as a starting point for helping to bring mainline linux forward on this platform
-- the grub setup so far is only an ugly hack to make it boot at all and the boot config is currently hard coded in /boot/boot/grub/grub.cfg
-- currently the dtb file for the asus novago is hard coded in the grub config file, this needs to be adjusted in case of another snapdragon 835 system
-- the root filesystems is currently still set to ext4 (but the usual btrfs should work as well i guess)
-- so far only tested with bullseye, not sure if grub etc. in focal is new enough to be working
+- the grub setup so far is only an ugly hack to make it boot at all and the boot config is currently hard coded in /boot/boot/grub/grub.cfg (update since the 2025 images: regular u-boot is now used and the boot menu is generated via /etc/grub.d/40_custom)
+- currently the dtb file for the asus novago is hard coded in the grub config file, this needs to be adjusted in case of another snapdragon 835 system (update since the 2025 images: there is now a grub menu with all supported systems)
+- the root filesystems is currently still set to ext4 (update since the 2025 images: btrfs is used now as well)
 - the linux support for those snapdragon 835 is missing a lot of things like gpu acceleration, wifi, sound, susped/resume, cpu frequency scaling etc., so it might only be useful in case you want to hack on it
 - booting should only be done from usb for now, please keep the windows installation on emmc/ufs as it might be required to get updated firmware files from it still
-- secure boot needs to be disabled in the bios in order to be able to boot those images as all
+- secure boot needs to be disabled in the bios in order to be able to boot those images at all
 - some outdated information and information on how to prepare the system to boot linux can be found here: https://github.com/aarch64-laptops/build
 - it looks like it is possible to create a recovery disk/drive from within windows via "start/windows" button and then searching for "recovery drive" (or whatever the proper translation for the installed windows language might be) and then using the resulting application to create such a drive on some usb disk following the dialogs - i did not try or use this yet, but it looks like its a good idea to create such a thing before even starting to play around with linux on a windows on arm device as there are usually no recovery media available for them
