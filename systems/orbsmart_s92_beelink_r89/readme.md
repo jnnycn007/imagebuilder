@@ -2,7 +2,7 @@
 
 ## bootable sd card images
 
-- https://github.com/velvet-os/imagebuilder-testimages/releases/tag/autumn-release-2025-testimages (testimage)
+- https://github.com/velvet-os/imagebuilder/releases/tag/260130-01
 - https://github.com/velvet-os/imagebuilder-testimages/releases/tag/spring-release-2025-testimages-round-07 (testimage)
 - https://github.com/velvet-os/imagebuilder/releases/tag/231002-05
 - https://github.com/velvet-os/imagebuilder/releases/tag/230222-05
@@ -20,7 +20,7 @@
 - beelink r89
   - should just work as i think its the exact same hardware
 - tronsmart orion r28
-  - should just work as i think its the exact same hardware
+  - it seems to not work on this device - see: https://github.com/velvet-os/imagebuilder/discussions/369#discussioncomment-15470473
 - ubox tv box
   - should just work as i think its nearly the same hardware
 
