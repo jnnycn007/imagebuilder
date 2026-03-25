@@ -40,3 +40,51 @@ https://github.com/hexdump0815/mesa-etc-build/releases/tag/21.0.1
 - in case someone finds out more or gets something working reliable and easily
   to reproduce, please open a github issue on this repo and share whatever new
 or additional information is available
+- it looks like the working old xorg server and mesa seems to work on trixie even still :)
+  - some notes upfront:
+    - even this old gpu driver is broken, so be happy if something is working
+      and expect anything a bit more complex opengl/gles to not work due to
+this brokenness of the driver
+    - do not even think about running stuff like gnome or kde etc. on top of
+      this
+    - some simple stuff like glmark2 seems to work ok
+    - more complex programs which use opengl/gles like firefox should be run
+      like: "env LIBGL_ALWAYS_SOFTWARE=1 firefox" to explicitely disable the
+gpu support as otherwise they are likely to crash sooner or later
+    - this old xserver and mesa builds most probably have some security issues
+      in them which are only fixed in newer version, so do not use this stuff
+for anything where security matters
+- steps to switch to the old xorg and mesa on trixie (verified to work with the autumn 2026 nyan image):
+```
+# the below steps have to be run as root in some dir - maybe /root for instance
+sudo -i
+cd /root
+# this is to avoid anything done in the nexts steps to be overwritten by updating those packages
+apt-mark hold libgl1-mesa-dri mesa-va-drivers xserver-xorg-core
+# get the old mesa and xorg server builds plus the old shared libraries they depend on
+wget https://github.com/hexdump0815/mesa-etc-build/releases/download/21.0.1/opt-xserver-bookworm-armv7l.tar.gz
+wget https://github.com/hexdump0815/mesa-etc-build/releases/download/21.0.3/opt-mesa-21.0.3-bookworm-armv7l.tar.gz
+wget https://github.com/hexdump0815/mesa-etc-build/releases/download/21.0.1/nyan-oldlibs.tar.gz
+# install them by unpacking the archives - all stuff goes to /opt plus /etc/ld.so.conf.d/aaa-oldlibs.conf
+cd /
+tar xzf /root/opt-xserver-bookworm-armv7l.tar.gz
+tar xzf /root/opt-mesa-21.0.3-bookworm-armv7l.tar.gz
+tar xzf /root/nyan-oldlibs.tar.gz
+# change some things to make the system use the old versions instead of the regular new ones
+mv -v /usr/lib/xorg/Xorg /usr/lib/xorg/Xorg.org
+ln -s /opt/xserver/bin/Xorg /usr/lib/xorg/Xorg
+mv -v /usr/lib/arm-linux-gnueabihf/dri /usr/lib/arm-linux-gnueabihf/dri.org
+ln -s /opt/mesa/lib/arm-linux-gnueabihf/dri /usr/lib/arm-linux-gnueabihf/dri
+mv -v /etc/X11/xorg.conf.d /etc/X11/xorg.conf.d.org
+mkdir /etc/X11/xorg.conf.d
+cp /etc/X11/xorg.conf.d.samples/11-modesetting.conf /etc/X11/xorg.conf.d
+cp /etc/X11/xorg.conf.d.samples/13-nouveau-nyan.conf /etc/X11/xorg.conf.d
+cp /etc/X11/xorg.conf.d.samples/51-newer-xorg-chromebook-kbd.conf /etc/X11/xorg.conf.d
+cp /etc/X11/xorg.conf.d.samples/51-newer-xorg-old-input.conf /etc/X11/xorg.conf.d
+cp /etc/X11/xorg.conf.d.samples/51-touchpad.conf /etc/X11/xorg.conf.d
+# make sure the shared libraries in /opt/mesa/lib/arm-linux-gnueabihf and /opt/oldlibs get used
+# via /etc/ld.so.conf.d/aaa-mesa.conf and /etc/ld.so.conf.d/aaa-oldlibs.conf
+ldconfig
+# restart lightdm - this will restart the current x11 session using the old stuff
+systemctl restart lightdm
+```

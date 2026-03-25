@@ -11,4 +11,5 @@ echo s2idle > /sys/power/mem_sleep
 # usually much higher ratios - to compensate a bit for this and keep the amount of
 # swapped pages written to real storage low lets double the amount of memory used
 # for the zswap compressed memory pool
+# update: this seems to be no longer required for newer kernels like v6.12.42+
 #echo 50 > /sys/module/zswap/parameters/max_pool_percent
