@@ -14,7 +14,7 @@ mkdir -p ${DOWNLOAD_DIR}/boot-extra-${1}
 for system in eachlink_h6_mini orange_pi_3 pine-h64 orangepi_one_plus tanix_tx6; do
   wget -v https://github.com/hexdump0815/u-boot-misc/releases/download/${allwinner_h6_uboot_version}/boot-${system}-aarch64.dd.gz -O - | gunzip -c > ${DOWNLOAD_DIR}/boot-extra-${1}/boot-${system}.dd
 done
-# it looks like the newer nonmame u-boot does not work as expected, so use the older one until fresh ones get rebuilt one day ...
+# it looks like the newer noname u-boot does not work as expected, so use the older one until fresh ones get rebuilt one day ...
 wget -v https://github.com/hexdump0815/u-boot-misc/releases/download/${allwinner_h6_uboot_noname_version}/boot-allwinner_h6-aarch64-noname-tv-box.dd.gz -O - | gunzip -c > ${DOWNLOAD_DIR}/boot-extra-${1}/boot-noname_h6_tv_box.dd
 
 # use the eachlink h6 mini u-boot as default
