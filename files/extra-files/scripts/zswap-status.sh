@@ -7,7 +7,9 @@
 ENABLED=$(cat /sys/module/zswap/parameters/enabled)
 ZPERCENTAGE=$(cat /sys/module/zswap/parameters/max_pool_percent)
 COMPRESSOR=$(cat /sys/module/zswap/parameters/compressor)
-ZPOOL=$(cat /sys/module/zswap/parameters/zpool)
+if [ -f /sys/module/zswap/parameters/zpool ]; then
+	ZPOOL=$(cat /sys/module/zswap/parameters/zpool)
+fi
 PAGE_SIZE=$(getconf PAGE_SIZE)
 STORED_PAGES=$(cat /sys/kernel/debug/zswap/stored_pages)
 POOL_TOTAL_SIZE=$(cat /sys/kernel/debug/zswap/pool_total_size)
@@ -32,7 +34,9 @@ fi
 echo "Zswap enabled:            $ENABLED"
 echo "Percentage:               $ZPERCENTAGE"
 echo "Compressor:               $COMPRESSOR"
-echo "Zpool:                    $ZPOOL"
+if [ -f /sys/module/zswap/parameters/zpool ]; then
+	echo "Zpool:                    $ZPOOL"
+fi
 echo
 echo "Page size:                $PAGE_SIZE"
 echo "Stored pages:             $STORED_PAGES"

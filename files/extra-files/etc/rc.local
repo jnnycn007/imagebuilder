@@ -44,7 +44,10 @@ if [ -f /sys/module/zswap/parameters/enabled ]; then
   # memory above 1gb on many of those systems as they cannot allocate
   # from himem - besides that zsmalloc also allows the highest
   # compression ratio (larger than 1:3) for the compressed memory 
-  echo zsmalloc > /sys/module/zswap/parameters/zpool
+  # newer kernel versions have only zsmalloc left, so no more choice
+  if [ -f /sys/module/zswap/parameters/zpool ]; then
+    echo zsmalloc > /sys/module/zswap/parameters/zpool
+  fi
   # default is 20, less means less compressed memory and less cpu usage
   # for compression, more is the other way around, depends on actual hw
   # with 20 there is a 25-30% win on available memory with a typical
