@@ -1,6 +1,3 @@
-# enable light supend mode, i.e. only cpu is put into sleep, everything else stays alive
-#echo s2idle > /sys/power/mem_sleep
-
 # here it is possible to set a higher max cpu frequency before enabling
 # the boost frequencies to step by step try out until which frequency
 # the system still remains stable - for possible values

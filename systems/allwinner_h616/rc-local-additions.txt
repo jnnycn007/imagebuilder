@@ -8,8 +8,7 @@ fi
 
 # here it is possible to set a higher max cpu frequency before enabling
 # the boost frequencies to step by step try out until which frequency
-# the system still remains stable - possible values are:
-# 1200000 1320000 1416000 1512000 1608000 1704000 1800000
+# the system still remains stable - for possible values
 # see: cat /sys/devices/system/cpu/cpufreq/policy0/scaling_available_frequencies
 # and: cat /sys/devices/system/cpu/cpufreq/policy0/scaling_boost_frequencies
 if [ -f /sys/devices/system/cpu/cpufreq/boost ]; then
