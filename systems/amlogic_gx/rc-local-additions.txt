@@ -1,6 +1,3 @@
-# enable light supend mode, i.e. only cpu is put into sleep, everything else stays alive
-#echo s2idle > /sys/power/mem_sleep
-
 # enable the ondemand governor for cpu freq scaling to be able to enable
 # boost/turbo frequencies below as the schedutil governor seems to ignore them
 #if [ -f /sys/devices/system/cpu/cpufreq/policy0/scaling_available_governors ]; then
@@ -19,5 +16,5 @@
 # and: cat /sys/devices/system/cpu/cpufreq/policy0/scaling_boost_frequencies
 #if [ -f /sys/devices/system/cpu/cpufreq/boost ]; then
 #  echo 1 > /sys/devices/system/cpu/cpufreq/boost
-#  echo 1512000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+#  echo 1500000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 #fi
