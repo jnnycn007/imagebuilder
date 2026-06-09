@@ -6,6 +6,17 @@ if [ -f /sys/class/devfreq/1800000.gpu/max_freq ]; then
   echo 216000000 > /sys/class/devfreq/1800000.gpu/min_freq
 fi
 
+# enable the ondemand governor for cpu freq scaling to be able to enable
+# boost/turbo frequencies below as the schedutil governor seems to ignore them
+#if [ -f /sys/devices/system/cpu/cpufreq/policy0/scaling_available_governors ]; then
+#  grep -q ondemand /sys/devices/system/cpu/cpufreq/policy0/scaling_available_governors
+#  if [ "$?" = "0" ]; then
+#    for policy in /sys/devices/system/cpu/cpufreq/policy?; do
+#      echo ondemand > $policy/scaling_governor
+#    done
+#  fi
+#fi
+
 # here it is possible to set a higher max cpu frequency before enabling
 # the boost frequencies to step by step try out until which frequency
 # the system still remains stable - for possible values

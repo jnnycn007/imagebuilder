@@ -1,8 +1,10 @@
 # this file is supposed to be sourced by the get-files shell script
 
-aarch64_mbr_uefi_release_version="6.12.12-stb-av8%2B"
-aarch64_mbr_uefi_gxl_uboot_version="250629-01"
-aarch64_mbr_uefi_gxm_uboot_version="250629-01"
+aarch64_mbr_uefi_release_version="6.18.16-stb-av8%2B"
+aarch64_mbr_uefi_gxl_uboot_version="260420-01"
+aarch64_mbr_uefi_gxm_uboot_version="260420-01"
+aarch64_mbr_uefi_g12a_uboot_version="260420-02"
+aarch64_mbr_uefi_sm1_uboot_version="260420-02"
 
 rm -f ${DOWNLOAD_DIR}/kernel-aarch64_mbr_uefi-${2}.tar.gz
 wget -v https://github.com/hexdump0815/linux-mainline-and-mali-generic-stable-kernel/releases/download/${aarch64_mbr_uefi_release_version}/${aarch64_mbr_uefi_release_version}.tar.gz -O ${DOWNLOAD_DIR}/kernel-aarch64_mbr_uefi-${2}.tar.gz
@@ -13,8 +15,11 @@ mkdir -p ${DOWNLOAD_DIR}/boot-extra-${1}
 wget -v https://github.com/hexdump0815/u-boot-misc/releases/download/${aarch64_mbr_uefi_gxl_uboot_version}/gxl-tv-box-u-boot.bin.gz -O - | gunzip -c > ${DOWNLOAD_DIR}/boot-extra-${1}/gxl-tv-box-u-boot.bin
 wget -v https://github.com/hexdump0815/u-boot-misc/releases/download/${aarch64_mbr_uefi_gxl_uboot_version}/boot-amlogic_gxl_a95x-r2-atf-aarch64.dd.gz -O - | gunzip -c > ${DOWNLOAD_DIR}/boot-extra-${1}/boot-amlogic_gxl_a95x-r2-atf-aarch64.dd
 wget -v https://github.com/hexdump0815/u-boot-misc/releases/download/${aarch64_mbr_uefi_gxl_uboot_version}/boot-amlogic_gxl_libre-bl2-atf-aarch64.dd.gz -O - | gunzip -c > ${DOWNLOAD_DIR}/boot-extra-${1}/boot-amlogic_gxl_libre-bl2-atf-aarch64.dd
-wget -v https://github.com/hexdump0815/u-boot-misc/releases/download/${aarch64_mbr_uefi_gxm_uboot_version}/gxm-tv-box-u-boot.bin.gz -O - | gunzip -c > ${DOWNLOAD_DIR}/boot-extra-${1}/gxm-tv-box-u-boot.bin
 wget -v https://github.com/hexdump0815/u-boot-misc/releases/download/${aarch64_mbr_uefi_gxm_uboot_version}/boot-amlogic_gxm_nexbox-a1-aarch64.dd.gz -O - | gunzip -c > ${DOWNLOAD_DIR}/boot-extra-${1}/boot-amlogic_gxm_nexbox-a1-aarch64.dd
+wget -v https://github.com/hexdump0815/u-boot-misc/releases/download/${aarch64_mbr_uefi_g12a_uboot_version}/boot-g12a-tv-box-aarch64.dd.gz -O - | gunzip -c > ${DOWNLOAD_DIR}/boot-extra-${1}/boot-amlogic-g12a-tv-box-aarch64.dd
+wget -v https://github.com/hexdump0815/u-boot-misc/releases/download/${aarch64_mbr_uefi_g12a_uboot_version}/g12a-tv-box-u-boot.bin.gz -O - | gunzip -c > ${DOWNLOAD_DIR}/boot-extra-${1}/g12a-tv-box-u-boot.bin
+wget -v https://github.com/hexdump0815/u-boot-misc/releases/download/${aarch64_mbr_uefi_sm1_uboot_version}/boot-sm1-tv-box-aarch64.dd.gz -O - | gunzip -c > ${DOWNLOAD_DIR}/boot-extra-${1}/boot-amlogic-sm1-tv-box-aarch64.dd
+wget -v https://github.com/hexdump0815/u-boot-misc/releases/download/${aarch64_mbr_uefi_sm1_uboot_version}/sm1-tv-box-u-boot.bin.gz -O - | gunzip -c > ${DOWNLOAD_DIR}/boot-extra-${1}/sm1-tv-box-u-boot.bin
 
 # use gxl bootblock as default
 cp -v ${DOWNLOAD_DIR}/boot-extra-${1}/boot-amlogic_gxl_a95x-r2-atf-aarch64.dd ${DOWNLOAD_DIR}/boot-aarch64_mbr_uefi-${2}.dd
