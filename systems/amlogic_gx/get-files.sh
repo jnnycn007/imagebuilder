@@ -1,16 +1,16 @@
 # this file is supposed to be sourced by the get-files shell script
 
-amlogic_gx_release_version="6.18.16-stb-av8%2B"
+amlogic_gx_release_version="6.18.34-stb-av8%2B"
 amlogic_gx_generic_tree_tag=${generic_tree_tag}
 amlogic_gx_gxb_uboot_version="200718-01"
 amlogic_gx_gxb_serial_uboot_version="200718-01"
 amlogic_gx_gxl_uboot_version="260420-01"
 amlogic_gx_gxl_serial_uboot_version="200718-01"
 amlogic_gx_gxm_uboot_version="260420-01"
-amlogic_gx_g12a_uboot_version="260420-02"
-amlogic_gx_g12a_serial_uboot_version="260420-02"
-amlogic_gx_sm1_uboot_version="260420-02"
-amlogic_gx_sm1_serial_uboot_version="260420-02"
+amlogic_gx_g12a_uboot_version="260609-01"
+amlogic_gx_g12a_serial_uboot_version="260609-01"
+amlogic_gx_sm1_uboot_version="260609-01"
+amlogic_gx_sm1_serial_uboot_version="260609-01"
 
 rm -f ${DOWNLOAD_DIR}/kernel-amlogic_gx-${2}.tar.gz
 wget -v https://github.com/hexdump0815/linux-mainline-and-mali-generic-stable-kernel/releases/download/${amlogic_gx_release_version}/${amlogic_gx_release_version}.tar.gz -O ${DOWNLOAD_DIR}/kernel-amlogic_gx-${2}.tar.gz

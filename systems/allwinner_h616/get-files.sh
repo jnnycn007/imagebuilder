@@ -1,6 +1,6 @@
 # this file is supposed to be sourced by the get-files shell script  
 
-allwinner_h616_release_version="6.18.22-stb-616%2B"
+allwinner_h616_release_version="6.18.34-stb-616%2B"
 allwinner_h616_uboot_version="260420-04"
 
 rm -f ${DOWNLOAD_DIR}/kernel-allwinner_h616-${2}.tar.gz

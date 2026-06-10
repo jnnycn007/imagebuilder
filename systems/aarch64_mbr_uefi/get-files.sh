@@ -1,10 +1,10 @@
 # this file is supposed to be sourced by the get-files shell script
 
-aarch64_mbr_uefi_release_version="6.18.16-stb-av8%2B"
+aarch64_mbr_uefi_release_version="6.18.34-stb-av8%2B"
 aarch64_mbr_uefi_gxl_uboot_version="260420-01"
 aarch64_mbr_uefi_gxm_uboot_version="260420-01"
-aarch64_mbr_uefi_g12a_uboot_version="260420-02"
-aarch64_mbr_uefi_sm1_uboot_version="260420-02"
+aarch64_mbr_uefi_g12a_uboot_version="260609-01"
+aarch64_mbr_uefi_sm1_uboot_version="260609-01"
 
 rm -f ${DOWNLOAD_DIR}/kernel-aarch64_mbr_uefi-${2}.tar.gz
 wget -v https://github.com/hexdump0815/linux-mainline-and-mali-generic-stable-kernel/releases/download/${aarch64_mbr_uefi_release_version}/${aarch64_mbr_uefi_release_version}.tar.gz -O ${DOWNLOAD_DIR}/kernel-aarch64_mbr_uefi-${2}.tar.gz
