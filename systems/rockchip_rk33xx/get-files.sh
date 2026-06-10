@@ -17,7 +17,7 @@ wget -v https://github.com/hexdump0815/u-boot-misc/releases/download/${rockchip_
 rm -rf ${DOWNLOAD_DIR}/boot-extra-${1}
 mkdir -p ${DOWNLOAD_DIR}/boot-extra-${1}
 cp ${DOWNLOAD_DIR}/boot-rockchip_rk33xx-${2}.dd ${DOWNLOAD_DIR}/boot-extra-${1}/boot-rk3328-ddrbin-spl.dd
-wget -v https://github.com/hexdump0815/u-boot-misc/releases/download/${rockchip_rk33xx_uboot_rk3318_ddrbin_legacy_atf_version}/boot-rk3318-ddrbin-legacy-atf-aarch64.dd.gz -O - | gunzip -c > ${DOWNLOAD_DIR}/boot-extra-${1}/boot-rk3318-ddrbin-legacy-atf-aarch64.dd.gz
+wget -v https://github.com/hexdump0815/u-boot-misc/releases/download/${rockchip_rk33xx_uboot_rk3318_ddrbin_legacy_atf_version}/boot-rk3318-ddrbin-legacy-atf-aarch64.dd.gz -O - | gunzip -c > ${DOWNLOAD_DIR}/boot-extra-${1}/boot-rk3318-ddrbin-legacy-atf-aarch64.dd
 wget -v https://github.com/hexdump0815/u-boot-misc/releases/download/${rockchip_rk33xx_uboot_rk3328_ddrbin_legacy_atf_version}/boot-rk3328-ddrbin-legacy-atf-aarch64.dd.gz -O - | gunzip -c > ${DOWNLOAD_DIR}/boot-extra-${1}/boot-rk3328-ddrbin-legacy-atf.dd
 wget -v https://github.com/hexdump0815/u-boot-misc/releases/download/${rockchip_rk33xx_uboot_ddrbin_666mhz_spl_version}/boot-rk3328-ddrbin-v1.15-666mhz-spl-aarch64.dd.gz -O - | gunzip -c > ${DOWNLOAD_DIR}/boot-extra-${1}/boot-rk3328-ddrbin-666mhz-spl.dd
 wget -v https://github.com/hexdump0815/u-boot-misc/releases/download/${rockchip_rk33xx_uboot_ddrbin_v116_spl_version}/boot-rk3328-ddrbin-v1.16-spl-aarch64.dd.gz -O - | gunzip -c > ${DOWNLOAD_DIR}/boot-extra-${1}/boot-rk3328-ddrbin-666mhz-spl.dd
